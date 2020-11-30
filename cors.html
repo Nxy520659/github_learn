@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="send">Send</button>
+<p>
+    <span>Result:&nbsp;&nbsp;</span>
+    <span id="result"></span>
+</p>
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>-->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    console.log($.fn)
+    let send = $("#send"),
+        result = $('#result')
+
+    let strategy = {
+        "name": "新策略",
+        "line": [
+            {
+                "id": "first",
+                "name": "耳麦",
+                "prop": "out",
+                "mute": true,
+                "select": false,
+                "section": [
+                    {
+                        "Hz": 32,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 64,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 125,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 250,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 500,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 1000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 2000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 4000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 8000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 16000,
+                        "decibel": 0,
+                        "q": 1.4
+                    }
+                ],
+                "count": 10,
+                "bandModel": "中等",
+                "line": 6,
+                "gain": 11,
+                "delay": 200
+            },
+            {
+                "id": "second",
+                "name": "有线麦克1",
+                "prop": "out",
+                "mute": false,
+                "select": false,
+                "section": [
+                    {
+                        "Hz": 32,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 64,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 125,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 250,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 500,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 1000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 2000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 4000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 8000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 16000,
+                        "decibel": 0,
+                        "q": 1.4
+                    }
+                ],
+                "count": 10,
+                "bandModel": "中等",
+                "line": 4,
+                "gain": 11,
+                "delay": 200
+            },
+            {
+                "id": "third",
+                "select": false,
+                "name": "有线麦克2",
+                "prop": "out",
+                "mute": false,
+                "section": [
+                    {
+                        "Hz": 32,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 64,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 125,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 250,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 500,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 1000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 2000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 4000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 8000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 16000,
+                        "decibel": 0,
+                        "q": 1.4
+                    }
+                ],
+                "count": 10,
+                "bandModel": "中等",
+                "line": 2,
+                "gain": 11,
+                "delay": 200
+            },
+            {
+                "id": "four",
+                "select": false,
+                "name": "无线麦克1",
+                "prop": "out",
+                "mute": false,
+                "section": [
+                    {
+                        "Hz": 32,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 64,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 125,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 250,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 500,
+                        "decibel": 10,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 1000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 2000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 4000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 8000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 16000,
+                        "decibel": 0,
+                        "q": 1.4
+                    }
+                ],
+                "count": 10,
+                "bandModel": "中等",
+                "line": 5,
+                "gain": 11,
+                "delay": 200
+            },
+            {
+                "id": "five",
+                "name": "无线麦克2",
+                "select": false,
+                "prop": "out",
+                "mute": false,
+                "section": [
+                    {
+                        "Hz": 32,
+                        "decibel": 10,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 64,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 125,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 250,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 500,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 1000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 2000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 4000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 8000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 16000,
+                        "decibel": 0,
+                        "q": 1.4
+                    }
+                ],
+                "count": 10,
+                "bandModel": "中等",
+                "line": 7,
+                "gain": 13,
+                "delay": 200
+            },
+            {
+                "id": "six",
+                "name": "本地音乐",
+                "prop": "out",
+                "select": true,
+                "mute": false,
+                "section": [
+                    {
+                        "Hz": 32,
+                        "decibel": 12,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 64,
+                        "decibel": 0,
+                        "q": 1.5
+                    },
+                    {
+                        "Hz": 125,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 250,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 500,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 1000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 2000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 4000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 8000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 16000,
+                        "decibel": 0,
+                        "q": 1.4
+                    }
+                ],
+                "count": 10,
+                "bandModel": "中等",
+                "line": 1,
+                "gain": 11,
+                "delay": 200
+            },
+            {
+                "id": "seven",
+                "select": false,
+                "name": "外部音乐",
+                "prop": "out",
+                "mute": false,
+                "section": [
+                    {
+                        "Hz": 32,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 64,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 125,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 250,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 500,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 1000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 2000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 4000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 8000,
+                        "decibel": 0,
+                        "q": 1.4
+                    },
+                    {
+                        "Hz": 16000,
+                        "decibel": 0,
+                        "q": 1.4
+                    }
+                ],
+                "count": 10,
+                "bandModel": "中等",
+                "line": 3,
+                "gain": 11,
+                "delay": 200
+            }
+        ],
+        "mute": true,
+        "select": true,
+        "delay": 20,
+        "reverberation": 20,
+        "bass": 20,
+        "gain": 20,
+        "treble": 20
+    }
+
+    send.on('click', function() {
+        $.ajax({
+            url: 'http://127.0.0.1:8002/v1/user/strategy/7/edit',
+            type: 'post',
+            headers: {
+                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiay5yZWFkZXIuY29tIiwiaWF0IjoxNjA1NjcwOTgyLCJ1aWQiOjF9.Ej9CaNp_uYhQHL1f4aXzyWF-WmbXZRdVWubMQuJrzxA',
+                'Content-type': 'application/json'
+            },
+            data: JSON.stringify(strategy),
+            // dataType: 'json',
+            success(res) {
+                console.log(res)
+                //result.text(JSON.stringify(res))
+            }
+        })
+    })
+</script>
+</body>
+</html>
